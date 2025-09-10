@@ -1,156 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Headlinerz - The Old Town Barbershop. Professional barber services in the heart of Old Town. Expert cuts, classic shaves, and modern styling.">
-    <meta name="keywords" content="barbershop, barber, haircut, shave, old town, professional grooming">
-    <title>Headlinerz - The Old Town Barbershop</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="site.webmanifest">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Headlinerz - The Old Town Barbershop">
-    <meta property="og:description" content="Professional barber services in the heart of Old Town. Expert cuts, classic shaves, and modern styling.">
-    <meta property="og:image" content="og.jpg">
-    <meta property="og:url" content="https://maryamtechinfo.github.io/Headlinerz-The-Old-Town-Barbershop/">
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Headlinerz - The Old Town Barbershop</title>
+  <meta name="description" content="Old Town’s best barbershop. Walk-ins and appointments, classic & modern cuts. Call now or visit us in Torrance, CA.">
+  <link rel="canonical" href="https://maryamtechinfo.github.io/Headlinerz-The-Old-Town-Barbershop/"/>
+  <meta property="og:title" content="Headlinerz - The Old Town Barbershop">
+  <meta property="og:description" content="Classic & modern barbershop in Torrance, CA. Premium fades, beard trims, and shaves.">
+  <meta property="og:image" content="og.jpg">
+  <meta property="og:url" content="https://maryamtechinfo.github.io/Headlinerz-The-Old-Town-Barbershop/">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Manrope -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@600&display=swap" rel="stylesheet">
+  <!-- Favicon: SVG H monogram -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='12' fill='black'/><text x='50%' y='62%' fill='white' font-family='Inter,Arial' font-size='32' font-weight='bold' dominant-baseline='middle' text-anchor='middle'>H</text></svg>">
+  <!-- Anime.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <style>
+    html { font-family: 'Inter', 'Manrope', Arial, sans-serif;}
+    :root { --brand: #f8cc47; }
+    .fade-in { opacity: 0; }
+  </style>
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Barbershop",
+      "name": "Headlinerz The Old Town Barbershop",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1217 El Prado Ave",
+        "addressLocality": "Torrance",
+        "addressRegion": "CA",
+        "postalCode": "90501"
+      },
+      "telephone": "+1-310-986-4788",
+      "image": "og.jpg",
+      "url": "https://maryamtechinfo.github.io/Headlinerz-The-Old-Town-Barbershop/"
+    }
+  </script>
 </head>
-<body class="bg-stone-50 text-stone-900">
-    <!-- Header -->
-    <header class="bg-stone-900 text-stone-50 shadow-lg">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <h1 class="text-2xl font-bold text-amber-500">Headlinerz</h1>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-amber-500 transition-colors">Home</a>
-                    <a href="#services" class="hover:text-amber-500 transition-colors">Services</a>
-                    <a href="#team" class="hover:text-amber-500 transition-colors">Team</a>
-                    <a href="#contact" class="hover:text-amber-500 transition-colors">Contact</a>
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <span class="sr-only">Open menu</span>
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-    </header>
-    
-    <!-- Hero Section -->
-    <section id="home" class="bg-stone-800 text-stone-50 py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-5xl font-bold mb-6">Welcome to <span class="text-amber-500">Headlinerz</span></h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">The Old Town's premier barbershop, where tradition meets modern style. Experience the art of classic grooming in our historic location.</p>
-            <a href="#services" class="bg-amber-500 hover:bg-amber-600 text-stone-900 font-semibold py-3 px-8 rounded-lg transition-colors">
-                View Our Services
-            </a>
-        </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section id="services" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 text-stone-800">Our Services</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold mb-4 text-amber-500">Classic Cut</h3>
-                    <p class="text-stone-600 mb-4">Traditional barbering techniques with modern precision. Perfect for the gentleman who appreciates timeless style.</p>
-                    <p class="text-2xl font-bold text-stone-800">$30</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold mb-4 text-amber-500">Hot Towel Shave</h3>
-                    <p class="text-stone-600 mb-4">Experience the luxury of a traditional hot towel shave with premium oils and creams.</p>
-                    <p class="text-2xl font-bold text-stone-800">$25</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold mb-4 text-amber-500">Complete Service</h3>
-                    <p class="text-stone-600 mb-4">The full experience - haircut, hot towel shave, and styling. Leave looking your absolute best.</p>
-                    <p class="text-2xl font-bold text-stone-800">$50</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Team Section -->
-    <section id="team" class="bg-stone-100 py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 text-stone-800">Meet Our Team</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="text-center">
-                    <div class="bg-stone-300 w-48 h-48 rounded-full mx-auto mb-6"></div>
-                    <h3 class="text-2xl font-bold mb-2 text-stone-800">Mike Johnson</h3>
-                    <p class="text-amber-600 font-semibold mb-2">Master Barber</p>
-                    <p class="text-stone-600">15+ years of experience in classic and modern cuts. Specializes in traditional hot towel shaves.</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-stone-300 w-48 h-48 rounded-full mx-auto mb-6"></div>
-                    <h3 class="text-2xl font-bold mb-2 text-stone-800">Sarah Williams</h3>
-                    <p class="text-amber-600 font-semibold mb-2">Senior Stylist</p>
-                    <p class="text-stone-600">Expert in modern styling and beard grooming. Known for her attention to detail and friendly service.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 text-stone-800">Visit Us</h2>
-            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-amber-500">Location & Hours</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-semibold text-stone-800">Address</h4>
-                            <p class="text-stone-600">123 Historic Street<br>Old Town, ST 12345</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-stone-800">Phone</h4>
-                            <p class="text-stone-600">(555) 123-4567</p>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-stone-800">Hours</h4>
-                            <div class="text-stone-600">
-                                <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
-                                <p>Saturday: 8:00 AM - 6:00 PM</p>
-                                <p>Sunday: 10:00 AM - 4:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-amber-500">Book an Appointment</h3>
-                    <p class="text-stone-600 mb-4">Call us at (555) 123-4567 or visit us during business hours. Walk-ins welcome!</p>
-                    <a href="tel:5551234567" class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg inline-block transition-colors">
-                        Call Now
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-50 py-8">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-2xl font-bold mb-4 text-amber-500">Headlinerz</h3>
-            <p class="text-stone-300 mb-4">The Old Town Barbershop</p>
-            <p class="text-stone-400 text-sm">&copy; 2025 Headlinerz. All rights reserved.</p>
-        </div>
-    </footer>
-    
-    <!-- Custom JavaScript -->
-    <script src="scripts.js"></script>
+<body class="bg-neutral-950 text-white min-h-screen flex flex-col selection:bg-yellow-100 selection:text-black">
+  <!-- NAV -->
+  <header class="w-full p-4 flex justify-between items-center border-b border-neutral-900">
+    <div class="flex items-center space-x-2">
+      <span class="text-3xl font-extrabold text-yellow-400 tracking-tight">H</span>
+      <span class="font-manrope font-semibold text-xl tracking-wide">Headlinerz</span>
+    </div>
+    <nav class="space-x-5 hidden md:block">
+      <a href="#services" class="hover:underline underline-offset-4 transition">Services</a>
+      <a href="#gallery" class="hover:underline underline-offset-4 transition">Gallery</a>
+      <a href="#reviews" class="hover:underline underline-offset-4 transition">Reviews</a>
+      <a href="#contact" class="hover:underline underline-offset-4 transition">Contact</a>
+    </nav>
+  </header>
+  <!-- HERO -->
+  <section class="relative flex-grow flex items-center justify-center p-8 min-h-[60vh] bg-gradient-to-br from-yellow-400/10 via-neutral-900 to-black fade-in" id="hero">
+    <div class="text-center max-w-2xl">
+      <h1 class="mb-2 text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg">The Old Town’s Modern Barbershop</h1>
+      <p class="mb-6 text-xl text-gray-100 font-medium">Tradition meets style. Fades, beards, and classic cuts in the heart of Torrance.</p>
+      <div class="flex flex-wrap justify-center gap-5 mt-8">
+        <a href="tel:+13109864788" 
+           class="cta-btn px-8 py-3 rounded-full bg-yellow-400 text-black text-lg font-bold shadow-xl hover:scale-105 hover:bg-yellow-300 transition-all duration-200 focus:outline-white"
+           style="box-shadow:0 4px 20px #f8cc47a0;">Call Now</a>
+        <a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank"
+           class="cta-btn px-8 py-3 rounded-full border-2 border-yellow-400 text-yellow-400 bg-transparent text-lg font-bold hover:bg-yellow-400 hover:text-black hover:scale-105 transition-all duration-200">Directions</a>
+      </div>
+      <div class="mt-6 text-gray-400 flex gap-2 justify-center items-center text-sm">
+        <a href="https://instagram.com/headlinerz_oldtownbarbershop" target="_blank" rel="noopener" class="underline hover:text-yellow-400">Instagram</a>
+        |
+        1217 El Prado Ave, Torrance, CA
+      </div>
+    </div>
+  </section>
+  <!-- SERVICES -->
+  <section id="services" class="fade-in py-16 px-4 bg-neutral-900">
+    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Our Services</h2>
+    <div class="flex flex-wrap justify-center gap-8">
+      <div class="bg-neutral-800 rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in">
+        <h3 class="text-xl font-semibold mb-2">Adult Haircut</h3>
+        <p class="text-gray-300 mb-2">Classic or modern cuts, tailored for you.</p>
+        <span class="text-yellow-400 font-bold text-lg">From $35</span>
+      </div>
+      <div class="bg-neutral-800 rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in">
+        <h3 class="text-xl font-semibold mb-2">Kids Haircut</h3>
+        <p class="text-gray-300 mb-2">Great with kids, stylish results.</p>
+        <span class="text-yellow-400 font-bold text-lg">From $30</span>
+      </div>
+      <div class="bg-neutral-800 rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in">
+        <h3 class="text-xl font-semibold mb-2">Beard Trim & Shave</h3>
+        <p class="text-gray-300 mb-2">Sculpting, trims, and hot towels.</p>
+        <span class="text-yellow-400 font-bold text-lg">From $20</span>
+      </div>
+    </div>
+  </section>
+  <!-- GALLERY -->
+  <section id="gallery" class="fade-in py-16 px-4 bg-neutral-950">
+    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Gallery</h2>
+    <div class="flex flex-wrap gap-6 justify-center">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=300&q=80" alt="Modern Fade" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
+      <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=300&q=80" alt="Classic Cut" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=300&q=80" alt="Barbershop Interior" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
+    </div>
+  </section>
+  <!-- REVIEWS -->
+  <section id="reviews" class="fade-in py-16 px-4 bg-neutral-900">
+    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">What Clients Say</h2>
+    <div class="flex flex-wrap gap-8 justify-center">
+      <div class="bg-neutral-800 rounded-xl shadow p-5 max-w-sm fade-in">
+        <p class="mb-2 text-gray-200 italic">“My go-to barber… always leave happy about my haircut. Staff extremely personable and funny.”</p>
+        <span class="text-xs text-yellow-400">— Yelp</span>
+      </div>
+      <div class="bg-neutral-800 rounded-xl shadow p-5 max-w-sm fade-in">
+        <p class="mb-2 text-gray-200 italic">“Having my hair cut here was one of my best LA experiences. A beer, reggae, great people. Highly recommend!”</p>
+        <span class="text-xs text-yellow-400">— Yelp</span>
+      </div>
+      <div class="bg-neutral-800 rounded-xl shadow p-5 max-w-sm fade-in">
+        <p class="mb-2 text-gray-200 italic">“Super friendly staff. Did not have an appointment. Wait was not too long. Great haircuts walking out.”</p>
+        <span class="text-xs text-yellow-400">— Yelp</span>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in py-16 px-4 bg-neutral-950">
+    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Contact & Hours</h2>
+    <div class="max-w-lg mx-auto text-center">
+      <div class="mb-6">
+        <div class="flex justify-center text-xl font-bold text-yellow-400 items-center"><span class="material-icons mr-1">call</span> +1 310-986-4788</div>
+        <span>1217 El Prado Ave, Torrance, CA</span>
+      </div>
+      <div class="mb-3">
+        <b>Hours:</b>
+        <div>Mon: Closed</div>
+        <div>Tue–Thu: 10:00am–6:30pm</div>
+        <div>Fri: 9:00am–6:30pm</div>
+        <div>Sat: 9:00am–4:00pm</div>
+        <div>Sun: 9:00am–1:00pm</div>
+      </div>
+      <div><a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank" class="text-yellow-400 underline hover:text-yellow-200">Get directions</a></div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="bg-black text-gray-400 py-4 text-center text-sm border-t border-neutral-800">
+    &copy; 2025 Headlinerz The Old Town Barbershop &mdash; Powered by Maryam Tech. All rights reserved.
+  </footer>
+  <!-- Animation Logic -->
+  <script>
+    // Staggered fade in for all .fade-in elements
+    document.addEventListener("DOMContentLoaded", () => {
+      anime({
+        targets: '.fade-in',
+        opacity: [0,1],
+        translateY: [40,0],
+        delay: anime.stagger(120),
+        easing: 'easeOutQuad',
+        duration: 900,
+      });
+      // Animate hero CTA buttons
+      anime({
+        targets: '.cta-btn',
+        scale: [0.85,1],
+        opacity: [0,1],
+        delay: anime.stagger(200,{start:400}),
+        easing: 'spring(1,80,10,0)',
+        duration: 800,
+      });
+    });
+  </script>
 </body>
 </html>
