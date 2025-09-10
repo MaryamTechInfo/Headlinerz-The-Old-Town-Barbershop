@@ -28,13 +28,27 @@
       --card-bg: #212124;
       --primary: #f8cc47;
       --primary-contrast: #000;
+      --muted: #e6e6e6;
+      --section: #161616;
+      --section-alt: #fff;
+      --review-bg: #232323;
+      --review-text: #fafcff;
+      --review-bg-light: #fff7e0;
+      --review-text-light: #222;
     }
     [data-theme="light"] {
-      --main-bg: #f3f3f4;
-      --main-text: #212124;
+      --main-bg: #f8f9fc;
+      --main-text: #181930;
       --card-bg: #fff;
-      --primary: #f8cc47;
+      --primary: #e6af19;
       --primary-contrast: #000;
+      --muted: #232323;
+      --section: #ffffff;
+      --section-alt: #f3f3f4;
+      --review-bg: #fff7e0;
+      --review-text: #222;
+      --review-bg-light: #f8f9fc;
+      --review-text-light: #222;
     }
     body {
       background: var(--main-bg);
@@ -58,8 +72,23 @@
       box-shadow: 0 2px 12px #0002;
       position: relative;
     }
-    .theme-toggle:focus { box-shadow: 0 0 0 2px var(--primary); }
+    .theme-toggle:focus { box-shadow: 0 0 0 2px var(--primary);}
     ::selection { background: var(--primary); color: var(--primary-contrast);}
+    .section-bg { background: var(--section);}
+    .section-alt { background: var(--section-alt);}
+    .review-card {
+      background: var(--review-bg);
+      color: var(--review-text);
+      border-radius: 1rem;
+      box-shadow: 0 4px 32px #0001;
+      border: 1px solid #d8c77b1e;
+      transition: background 0.3s, color 0.3s;
+    }
+    [data-theme="light"] .review-card {
+      background: var(--review-bg-light);
+      color: var(--review-text-light);
+      border: 1px solid #e6af1940;
+    }
   </style>
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -103,8 +132,8 @@
   <!-- HERO -->
   <section class="relative flex-grow flex items-center justify-center p-8 min-h-[60vh] bg-gradient-to-br from-yellow-400/10 via-neutral-900 to-black fade-in" id="hero">
     <div class="text-center max-w-2xl">
-      <h1 class="mb-2 text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg">The Old Town’s Modern Barbershop</h1>
-      <p class="mb-6 text-xl text-gray-100 font-medium">Tradition meets style. Fades, beards, and classic cuts in the heart of Torrance.</p>
+      <h1 class="mb-2 text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg" style="color:var(--main-text)">The Old Town’s Modern Barbershop</h1>
+      <p class="mb-6 text-xl font-medium" style="color:var(--main-text)">Tradition meets style. Fades, beards, and classic cuts in the heart of Torrance.</p>
       <div class="flex flex-wrap justify-center gap-5 mt-8">
         <a href="tel:+13109864788" 
            class="cta-btn px-8 py-3 rounded-full bg-yellow-400 text-black text-lg font-bold shadow-xl hover:scale-105 hover:bg-yellow-300 transition-all duration-200 focus:outline-white"
@@ -112,37 +141,37 @@
         <a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank"
            class="cta-btn px-8 py-3 rounded-full border-2 border-yellow-400 text-yellow-400 bg-transparent text-lg font-bold hover:bg-yellow-400 hover:text-black hover:scale-105 transition-all duration-200">Directions</a>
       </div>
-      <div class="mt-6 text-gray-400 flex gap-2 justify-center items-center text-sm">
-        <a href="https://instagram.com/headlinerz_oldtownbarbershop" target="_blank" rel="noopener" class="underline hover:text-yellow-400">Instagram</a>
+      <div class="mt-6 flex gap-2 justify-center items-center text-sm" style="color:var(--main-text);opacity:0.8;">
+        <a href="https://instagram.com/headlinerz_oldtownbarbershop" target="_blank" rel="noopener" style="color:var(--main-text);text-decoration:underline;">Instagram</a>
         |
         1217 El Prado Ave, Torrance, CA
       </div>
     </div>
   </section>
   <!-- SERVICES -->
-  <section id="services" class="fade-in py-16 px-4 bg-[var(--card-bg)] transition">
-    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Our Services</h2>
+  <section id="services" class="fade-in py-16 px-4 section-bg">
+    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">Our Services</h2>
     <div class="flex flex-wrap justify-center gap-8">
-      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in bg-[var(--main-bg)] border border-yellow-100/5">
-        <h3 class="text-xl font-semibold mb-2 text-[var(--main-text)]">Adult Haircut</h3>
-        <p class="mb-2 text-gray-500 dark:text-gray-300">Classic or modern cuts, tailored for you.</p>
-        <span class="text-yellow-400 font-bold text-lg">From $35</span>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in" style="background:var(--card-bg);">
+        <h3 class="text-xl font-semibold mb-2" style="color:var(--main-text);">Adult Haircut</h3>
+        <p class="mb-2" style="color:var(--main-text);opacity:0.8;">Classic or modern cuts, tailored for you.</p>
+        <span style="color:var(--brand);font-weight:bold;font-size:1.1rem;">From $35</span>
       </div>
-      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in bg-[var(--main-bg)] border border-yellow-100/5">
-        <h3 class="text-xl font-semibold mb-2 text-[var(--main-text)]">Kids Haircut</h3>
-        <p class="mb-2 text-gray-500 dark:text-gray-300">Great with kids, stylish results.</p>
-        <span class="text-yellow-400 font-bold text-lg">From $30</span>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in" style="background:var(--card-bg);">
+        <h3 class="text-xl font-semibold mb-2" style="color:var(--main-text);">Kids Haircut</h3>
+        <p class="mb-2" style="color:var(--main-text);opacity:0.8;">Great with kids, stylish results.</p>
+        <span style="color:var(--brand);font-weight:bold;font-size:1.1rem;">From $30</span>
       </div>
-      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in bg-[var(--main-bg)] border border-yellow-100/5">
-        <h3 class="text-xl font-semibold mb-2 text-[var(--main-text)]">Beard Trim & Shave</h3>
-        <p class="mb-2 text-gray-500 dark:text-gray-300">Sculpting, trims, and hot towels.</p>
-        <span class="text-yellow-400 font-bold text-lg">From $20</span>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in" style="background:var(--card-bg);">
+        <h3 class="text-xl font-semibold mb-2" style="color:var(--main-text);">Beard Trim & Shave</h3>
+        <p class="mb-2" style="color:var(--main-text);opacity:0.8;">Sculpting, trims, and hot towels.</p>
+        <span style="color:var(--brand);font-weight:bold;font-size:1.1rem;">From $20</span>
       </div>
     </div>
   </section>
   <!-- GALLERY -->
-  <section id="gallery" class="fade-in py-16 px-4 bg-[var(--main-bg)]">
-    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Gallery</h2>
+  <section id="gallery" class="fade-in py-16 px-4 section-alt">
+    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">Gallery</h2>
     <div class="flex flex-wrap gap-6 justify-center">
       <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=300&q=80" alt="Modern Fade" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
       <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=300&q=80" alt="Classic Cut" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
@@ -150,30 +179,30 @@
     </div>
   </section>
   <!-- REVIEWS -->
-  <section id="reviews" class="fade-in py-16 px-4 bg-[var(--card-bg)] transition">
-    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">What Clients Say</h2>
+  <section id="reviews" class="fade-in py-16 px-4 section-bg">
+    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">What Clients Say</h2>
     <div class="flex flex-wrap gap-8 justify-center">
-      <div class="rounded-xl shadow p-5 max-w-sm fade-in bg-[var(--main-bg)] border border-yellow-100/5">
-        <p class="mb-2 text-gray-700 dark:text-gray-200 italic">“My go-to barber… always leave happy about my haircut. Staff extremely personable and funny.”</p>
-        <span class="text-xs text-yellow-400">— Yelp</span>
+      <div class="review-card shadow p-5 max-w-sm fade-in">
+        <p class="mb-2 italic" style="font-size:1.05rem;">“My go-to barber… always leave happy about my haircut. Staff extremely personable and funny.”</p>
+        <span style="font-size:0.9rem;color:var(--brand);">— Yelp</span>
       </div>
-      <div class="rounded-xl shadow p-5 max-w-sm fade-in bg-[var(--main-bg)] border border-yellow-100/5">
-        <p class="mb-2 text-gray-700 dark:text-gray-200 italic">“Having my hair cut here was one of my best LA experiences. A beer, reggae, great people. Highly recommend!”</p>
-        <span class="text-xs text-yellow-400">— Yelp</span>
+      <div class="review-card shadow p-5 max-w-sm fade-in">
+        <p class="mb-2 italic" style="font-size:1.05rem;">“Having my hair cut here was one of my best LA experiences. A beer, reggae, great people. Highly recommend!”</p>
+        <span style="font-size:0.9rem;color:var(--brand);">— Yelp</span>
       </div>
-      <div class="rounded-xl shadow p-5 max-w-sm fade-in bg-[var(--main-bg)] border border-yellow-100/5">
-        <p class="mb-2 text-gray-700 dark:text-gray-200 italic">“Super friendly staff. Did not have an appointment. Wait was not too long. Great haircuts walking out.”</p>
-        <span class="text-xs text-yellow-400">— Yelp</span>
+      <div class="review-card shadow p-5 max-w-sm fade-in">
+        <p class="mb-2 italic" style="font-size:1.05rem;">“Super friendly staff. Did not have an appointment. Wait was not too long. Great haircuts walking out.”</p>
+        <span style="font-size:0.9rem;color:var(--brand);">— Yelp</span>
       </div>
     </div>
   </section>
   <!-- CONTACT -->
-  <section id="contact" class="fade-in py-16 px-4 bg-[var(--main-bg)]">
-    <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Contact & Hours</h2>
-    <div class="max-w-lg mx-auto text-center">
+  <section id="contact" class="fade-in py-16 px-4 section-alt">
+    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">Contact & Hours</h2>
+    <div class="max-w-lg mx-auto text-center" style="color:var(--main-text);">
       <div class="mb-6">
-        <div class="flex justify-center text-xl font-bold text-yellow-400 items-center"><span class="material-icons mr-1">call</span> +1 310-986-4788</div>
-        <span class="text-[var(--main-text)]">1217 El Prado Ave, Torrance, CA</span>
+        <div class="flex justify-center text-xl font-bold items-center" style="color:var(--brand);"><span class="material-icons mr-1">call</span> +1 310-986-4788</div>
+        <span>1217 El Prado Ave, Torrance, CA</span>
       </div>
       <div class="mb-3">
         <b>Hours:</b>
@@ -183,7 +212,7 @@
         <div>Sat: 9:00am–4:00pm</div>
         <div>Sun: 9:00am–1:00pm</div>
       </div>
-      <div><a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank" class="text-yellow-400 underline hover:text-yellow-200">Get directions</a></div>
+      <div><a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank" style="color:var(--brand);text-decoration:underline;">Get directions</a></div>
     </div>
   </section>
   <!-- FOOTER -->
@@ -196,21 +225,15 @@
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const htmlEl = document.documentElement;
-    // Use localStorage if present:
     function setTheme(theme, noPersist) {
       htmlEl.setAttribute('data-theme', theme);
       if(!noPersist) localStorage.setItem('theme', theme);
-      if(theme === 'light') {
-        themeIcon.textContent = '☀️';
-      } else {
-        themeIcon.textContent = '🌒';
-      }
+      themeIcon.textContent = theme === 'light' ? '☀️' : '🌒';
     }
     function toggleTheme() {
       const cur = htmlEl.getAttribute('data-theme');
       setTheme(cur === 'light' ? 'dark' : 'light');
     }
-    // Initial theme (localStorage or prefers-color-scheme)
     (() => {
       const stored = localStorage.getItem('theme');
       if (stored) setTheme(stored, true);
