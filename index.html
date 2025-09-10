@@ -25,30 +25,22 @@
       --brand: #f8cc47;
       --main-bg: #09090b;
       --main-text: #fff;
-      --card-bg: #212124;
+      --main-heading: #fff;
+      --sub-heading: #f8cc47;
+      --card-bg: #232323;
       --primary: #f8cc47;
       --primary-contrast: #000;
-      --muted: #e6e6e6;
-      --section: #161616;
-      --section-alt: #fff;
-      --review-bg: #232323;
-      --review-text: #fafcff;
-      --review-bg-light: #fff7e0;
-      --review-text-light: #222;
+      --hero-tagline: #ededed;
     }
     [data-theme="light"] {
-      --main-bg: #f8f9fc;
-      --main-text: #181930;
+      --main-bg: #fffbe8;
+      --main-text: #161614;
+      --main-heading: #181818;
+      --sub-heading: #bb9900;
       --card-bg: #fff;
-      --primary: #e6af19;
-      --primary-contrast: #000;
-      --muted: #232323;
-      --section: #ffffff;
-      --section-alt: #f3f3f4;
-      --review-bg: #fff7e0;
-      --review-text: #222;
-      --review-bg-light: #f8f9fc;
-      --review-text-light: #222;
+      --primary: #ffc700;
+      --primary-contrast: #181818;
+      --hero-tagline: #353432;
     }
     body {
       background: var(--main-bg);
@@ -74,20 +66,39 @@
     }
     .theme-toggle:focus { box-shadow: 0 0 0 2px var(--primary);}
     ::selection { background: var(--primary); color: var(--primary-contrast);}
-    .section-bg { background: var(--section);}
-    .section-alt { background: var(--section-alt);}
+    .main-heading { color: var(--main-heading);}
+    .sub-heading { color: var(--sub-heading);}
+    .hero-tagline { color: var(--hero-tagline);}
+    .card-bg { background: var(--card-bg);}
+    .cta-btn {
+      box-shadow: 0 4px 16px #0005;
+      border: 2px solid var(--primary);
+      font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    }
+    .cta-btn.primary {
+      background: var(--primary);
+      color: var(--primary-contrast);
+    }
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--primary);
+    }
+    .cta-btn:focus { outline: 2px solid var(--primary);}
     .review-card {
-      background: var(--review-bg);
-      color: var(--review-text);
+      background: var(--card-bg);
+      color: var(--main-text);
       border-radius: 1rem;
       box-shadow: 0 4px 32px #0001;
-      border: 1px solid #d8c77b1e;
+      border: 1px solid #ece0b61e;
       transition: background 0.3s, color 0.3s;
     }
     [data-theme="light"] .review-card {
-      background: var(--review-bg-light);
-      color: var(--review-text-light);
-      border: 1px solid #e6af1940;
+      background: #fdf8dd;
+      color: #292400;
+      border: 1px solid #fde68a90;
+    }
+    [data-theme="light"] .card-bg {
+      background: #fff;
     }
   </style>
   <!-- Schema.org JSON-LD -->
@@ -111,16 +122,16 @@
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- NAV -->
-  <header class="w-full p-4 flex justify-between items-center border-b border-neutral-200 dark:border-neutral-900 bg-[var(--main-bg)] transition">
+  <header class="w-full p-4 flex justify-between items-center border-b border-neutral-200 dark:border-neutral-900" style="background: var(--main-bg);">
     <div class="flex items-center space-x-2">
-      <span class="text-3xl font-extrabold text-yellow-400 tracking-tight">H</span>
-      <span class="font-manrope font-semibold text-xl tracking-wide text-[var(--main-text)]">Headlinerz</span>
+      <span class="text-3xl font-extrabold sub-heading tracking-tight">H</span>
+      <span class="font-manrope font-semibold text-xl tracking-wide main-heading">Headlinerz</span>
     </div>
     <nav class="space-x-5 hidden md:block">
-      <a href="#services" class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Services</a>
-      <a href="#gallery"  class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Gallery</a>
-      <a href="#reviews"  class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Reviews</a>
-      <a href="#contact"   class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Contact</a>
+      <a href="#services" class="hover:underline underline-offset-4 transition main-heading">Services</a>
+      <a href="#gallery"  class="hover:underline underline-offset-4 transition main-heading">Gallery</a>
+      <a href="#reviews"  class="hover:underline underline-offset-4 transition main-heading">Reviews</a>
+      <a href="#contact"   class="hover:underline underline-offset-4 transition main-heading">Contact</a>
     </nav>
     <!-- Theme Toggle Button -->
     <button class="theme-toggle ml-4" title="Toggle light/dark mode" aria-label="Toggle light or dark mode" id="themeToggle">
@@ -130,48 +141,47 @@
     </button>
   </header>
   <!-- HERO -->
-  <section class="relative flex-grow flex items-center justify-center p-8 min-h-[60vh] bg-gradient-to-br from-yellow-400/10 via-neutral-900 to-black fade-in" id="hero">
+  <section class="relative flex-grow flex items-center justify-center p-8 min-h-[60vh] fade-in" id="hero" style="background:linear-gradient(120deg,#fae793 0%,#333 100%);">
     <div class="text-center max-w-2xl">
-      <h1 class="mb-2 text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg" style="color:var(--main-text)">The Old Town’s Modern Barbershop</h1>
-      <p class="mb-6 text-xl font-medium" style="color:var(--main-text)">Tradition meets style. Fades, beards, and classic cuts in the heart of Torrance.</p>
+      <h1 class="mb-2 text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg main-heading">The Old Town’s Modern Barbershop</h1>
+      <p class="mb-6 text-xl font-medium hero-tagline">Tradition meets style. Fades, beards, and classic cuts in the heart of Torrance.</p>
       <div class="flex flex-wrap justify-center gap-5 mt-8">
         <a href="tel:+13109864788" 
-           class="cta-btn px-8 py-3 rounded-full bg-yellow-400 text-black text-lg font-bold shadow-xl hover:scale-105 hover:bg-yellow-300 transition-all duration-200 focus:outline-white"
-           style="box-shadow:0 4px 20px #f8cc47a0;">Call Now</a>
+           class="cta-btn primary px-8 py-3 rounded-full text-lg font-bold shadow-xl hover:scale-105 hover:bg-yellow-300 transition-all duration-200">Call Now</a>
         <a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank"
-           class="cta-btn px-8 py-3 rounded-full border-2 border-yellow-400 text-yellow-400 bg-transparent text-lg font-bold hover:bg-yellow-400 hover:text-black hover:scale-105 transition-all duration-200">Directions</a>
+           class="cta-btn secondary px-8 py-3 rounded-full text-lg font-bold hover:bg-yellow-200 hover:text-black hover:scale-105 transition-all duration-200">Directions</a>
       </div>
-      <div class="mt-6 flex gap-2 justify-center items-center text-sm" style="color:var(--main-text);opacity:0.8;">
-        <a href="https://instagram.com/headlinerz_oldtownbarbershop" target="_blank" rel="noopener" style="color:var(--main-text);text-decoration:underline;">Instagram</a>
+      <div class="mt-6 flex gap-2 justify-center items-center text-sm hero-tagline">
+        <a href="https://instagram.com/headlinerz_oldtownbarbershop" target="_blank" rel="noopener" style="text-decoration:underline;">Instagram</a>
         |
         1217 El Prado Ave, Torrance, CA
       </div>
     </div>
   </section>
   <!-- SERVICES -->
-  <section id="services" class="fade-in py-16 px-4 section-bg">
-    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">Our Services</h2>
+  <section id="services" class="fade-in py-16 px-4" style="background: var(--main-bg);">
+    <h2 class="text-3xl font-bold mb-8 sub-heading text-center">Our Services</h2>
     <div class="flex flex-wrap justify-center gap-8">
-      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in" style="background:var(--card-bg);">
-        <h3 class="text-xl font-semibold mb-2" style="color:var(--main-text);">Adult Haircut</h3>
-        <p class="mb-2" style="color:var(--main-text);opacity:0.8;">Classic or modern cuts, tailored for you.</p>
-        <span style="color:var(--brand);font-weight:bold;font-size:1.1rem;">From $35</span>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in card-bg">
+        <h3 class="text-xl font-semibold mb-2 main-heading">Adult Haircut</h3>
+        <p class="mb-2" style="color:var(--main-text);opacity:0.86;">Classic or modern cuts, tailored for you.</p>
+        <span class="sub-heading font-bold text-lg">From $35</span>
       </div>
-      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in" style="background:var(--card-bg);">
-        <h3 class="text-xl font-semibold mb-2" style="color:var(--main-text);">Kids Haircut</h3>
-        <p class="mb-2" style="color:var(--main-text);opacity:0.8;">Great with kids, stylish results.</p>
-        <span style="color:var(--brand);font-weight:bold;font-size:1.1rem;">From $30</span>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in card-bg">
+        <h3 class="text-xl font-semibold mb-2 main-heading">Kids Haircut</h3>
+        <p class="mb-2" style="color:var(--main-text);opacity:0.86;">Great with kids, stylish results.</p>
+        <span class="sub-heading font-bold text-lg">From $30</span>
       </div>
-      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in" style="background:var(--card-bg);">
-        <h3 class="text-xl font-semibold mb-2" style="color:var(--main-text);">Beard Trim & Shave</h3>
-        <p class="mb-2" style="color:var(--main-text);opacity:0.8;">Sculpting, trims, and hot towels.</p>
-        <span style="color:var(--brand);font-weight:bold;font-size:1.1rem;">From $20</span>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in card-bg">
+        <h3 class="text-xl font-semibold mb-2 main-heading">Beard Trim & Shave</h3>
+        <p class="mb-2" style="color:var(--main-text);opacity:0.86;">Sculpting, trims, and hot towels.</p>
+        <span class="sub-heading font-bold text-lg">From $20</span>
       </div>
     </div>
   </section>
   <!-- GALLERY -->
-  <section id="gallery" class="fade-in py-16 px-4 section-alt">
-    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">Gallery</h2>
+  <section id="gallery" class="fade-in py-16 px-4" style="background: var(--card-bg);">
+    <h2 class="text-3xl font-bold mb-8 sub-heading text-center">Gallery</h2>
     <div class="flex flex-wrap gap-6 justify-center">
       <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=300&q=80" alt="Modern Fade" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
       <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=300&q=80" alt="Classic Cut" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
@@ -179,30 +189,30 @@
     </div>
   </section>
   <!-- REVIEWS -->
-  <section id="reviews" class="fade-in py-16 px-4 section-bg">
-    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">What Clients Say</h2>
+  <section id="reviews" class="fade-in py-16 px-4" style="background: var(--main-bg);">
+    <h2 class="text-3xl font-bold mb-8 sub-heading text-center">What Clients Say</h2>
     <div class="flex flex-wrap gap-8 justify-center">
       <div class="review-card shadow p-5 max-w-sm fade-in">
         <p class="mb-2 italic" style="font-size:1.05rem;">“My go-to barber… always leave happy about my haircut. Staff extremely personable and funny.”</p>
-        <span style="font-size:0.9rem;color:var(--brand);">— Yelp</span>
+        <span class="sub-heading" style="font-size:0.9rem;">— Yelp</span>
       </div>
       <div class="review-card shadow p-5 max-w-sm fade-in">
         <p class="mb-2 italic" style="font-size:1.05rem;">“Having my hair cut here was one of my best LA experiences. A beer, reggae, great people. Highly recommend!”</p>
-        <span style="font-size:0.9rem;color:var(--brand);">— Yelp</span>
+        <span class="sub-heading" style="font-size:0.9rem;">— Yelp</span>
       </div>
       <div class="review-card shadow p-5 max-w-sm fade-in">
         <p class="mb-2 italic" style="font-size:1.05rem;">“Super friendly staff. Did not have an appointment. Wait was not too long. Great haircuts walking out.”</p>
-        <span style="font-size:0.9rem;color:var(--brand);">— Yelp</span>
+        <span class="sub-heading" style="font-size:0.9rem;">— Yelp</span>
       </div>
     </div>
   </section>
   <!-- CONTACT -->
-  <section id="contact" class="fade-in py-16 px-4 section-alt">
-    <h2 class="text-3xl font-bold mb-8" style="color:var(--brand);text-align:center;">Contact & Hours</h2>
-    <div class="max-w-lg mx-auto text-center" style="color:var(--main-text);">
+  <section id="contact" class="fade-in py-16 px-4" style="background: var(--card-bg);">
+    <h2 class="text-3xl font-bold mb-8 sub-heading text-center">Contact & Hours</h2>
+    <div class="max-w-lg mx-auto text-center main-heading">
       <div class="mb-6">
-        <div class="flex justify-center text-xl font-bold items-center" style="color:var(--brand);"><span class="material-icons mr-1">call</span> +1 310-986-4788</div>
-        <span>1217 El Prado Ave, Torrance, CA</span>
+        <div class="flex justify-center text-xl font-bold items-center sub-heading"><span class="material-icons mr-1">call</span> +1 310-986-4788</div>
+        <span class="main-heading">1217 El Prado Ave, Torrance, CA</span>
       </div>
       <div class="mb-3">
         <b>Hours:</b>
@@ -212,7 +222,7 @@
         <div>Sat: 9:00am–4:00pm</div>
         <div>Sun: 9:00am–1:00pm</div>
       </div>
-      <div><a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank" style="color:var(--brand);text-decoration:underline;">Get directions</a></div>
+      <div><a href="https://maps.app.goo.gl/Ge2y4kS2VGhYqkQF7" target="_blank" class="sub-heading" style="text-decoration:underline;">Get directions</a></div>
     </div>
   </section>
   <!-- FOOTER -->
