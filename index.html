@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,8 +21,46 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <style>
     html { font-family: 'Inter', 'Manrope', Arial, sans-serif;}
-    :root { --brand: #f8cc47; }
+    :root {
+      --brand: #f8cc47;
+      --main-bg: #09090b;
+      --main-text: #fff;
+      --card-bg: #212124;
+      --primary: #f8cc47;
+      --primary-contrast: #000;
+    }
+    [data-theme="light"] {
+      --main-bg: #f3f3f4;
+      --main-text: #212124;
+      --card-bg: #fff;
+      --primary: #f8cc47;
+      --primary-contrast: #000;
+    }
+    body {
+      background: var(--main-bg);
+      color: var(--main-text);
+      transition: background 0.3s, color 0.3s;
+    }
     .fade-in { opacity: 0; }
+    .theme-toggle {
+      outline: none;
+      border: none;
+      background: var(--card-bg);
+      color: var(--primary);
+      border-radius: 999px;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 2px 12px #0002;
+      position: relative;
+    }
+    .theme-toggle:focus { box-shadow: 0 0 0 2px var(--primary); }
+    /* Custom scroll for main-page only */
+    ::selection { background: var(--primary); color: var(--primary-contrast);}
   </style>
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -43,19 +81,26 @@
     }
   </script>
 </head>
-<body class="bg-neutral-950 text-white min-h-screen flex flex-col selection:bg-yellow-100 selection:text-black">
+<body class="min-h-screen flex flex-col">
   <!-- NAV -->
-  <header class="w-full p-4 flex justify-between items-center border-b border-neutral-900">
+  <header class="w-full p-4 flex justify-between items-center border-b border-neutral-200 dark:border-neutral-900 bg-[var(--main-bg)] transition">
     <div class="flex items-center space-x-2">
       <span class="text-3xl font-extrabold text-yellow-400 tracking-tight">H</span>
-      <span class="font-manrope font-semibold text-xl tracking-wide">Headlinerz</span>
+      <span class="font-manrope font-semibold text-xl tracking-wide text-[var(--main-text)]">Headlinerz</span>
     </div>
     <nav class="space-x-5 hidden md:block">
-      <a href="#services" class="hover:underline underline-offset-4 transition">Services</a>
-      <a href="#gallery" class="hover:underline underline-offset-4 transition">Gallery</a>
-      <a href="#reviews" class="hover:underline underline-offset-4 transition">Reviews</a>
-      <a href="#contact" class="hover:underline underline-offset-4 transition">Contact</a>
+      <a href="#services" class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Services</a>
+      <a href="#gallery"  class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Gallery</a>
+      <a href="#reviews"  class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Reviews</a>
+      <a href="#contact"   class="hover:underline underline-offset-4 transition text-[var(--main-text)]">Contact</a>
     </nav>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle ml-4" title="Toggle light/dark mode" aria-label="Toggle light or dark mode" id="themeToggle">
+      <span id="themeIcon" class="transition-all duration-300">
+        <!-- Will be swapped with JS -->
+        🌒
+      </span>
+    </button>
   </header>
   <!-- HERO -->
   <section class="relative flex-grow flex items-center justify-center p-8 min-h-[60vh] bg-gradient-to-br from-yellow-400/10 via-neutral-900 to-black fade-in" id="hero">
@@ -77,28 +122,28 @@
     </div>
   </section>
   <!-- SERVICES -->
-  <section id="services" class="fade-in py-16 px-4 bg-neutral-900">
+  <section id="services" class="fade-in py-16 px-4 bg-[var(--card-bg)] transition">
     <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Our Services</h2>
     <div class="flex flex-wrap justify-center gap-8">
-      <div class="bg-neutral-800 rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in">
-        <h3 class="text-xl font-semibold mb-2">Adult Haircut</h3>
-        <p class="text-gray-300 mb-2">Classic or modern cuts, tailored for you.</p>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in bg-[var(--main-bg)] border border-yellow-100/5">
+        <h3 class="text-xl font-semibold mb-2 text-[var(--main-text)]">Adult Haircut</h3>
+        <p class="mb-2 text-gray-500 dark:text-gray-300">Classic or modern cuts, tailored for you.</p>
         <span class="text-yellow-400 font-bold text-lg">From $35</span>
       </div>
-      <div class="bg-neutral-800 rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in">
-        <h3 class="text-xl font-semibold mb-2">Kids Haircut</h3>
-        <p class="text-gray-300 mb-2">Great with kids, stylish results.</p>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in bg-[var(--main-bg)] border border-yellow-100/5">
+        <h3 class="text-xl font-semibold mb-2 text-[var(--main-text)]">Kids Haircut</h3>
+        <p class="mb-2 text-gray-500 dark:text-gray-300">Great with kids, stylish results.</p>
         <span class="text-yellow-400 font-bold text-lg">From $30</span>
       </div>
-      <div class="bg-neutral-800 rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in">
-        <h3 class="text-xl font-semibold mb-2">Beard Trim & Shave</h3>
-        <p class="text-gray-300 mb-2">Sculpting, trims, and hot towels.</p>
+      <div class="rounded-2xl shadow-lg p-6 w-80 max-w-full fade-in bg-[var(--main-bg)] border border-yellow-100/5">
+        <h3 class="text-xl font-semibold mb-2 text-[var(--main-text)]">Beard Trim & Shave</h3>
+        <p class="mb-2 text-gray-500 dark:text-gray-300">Sculpting, trims, and hot towels.</p>
         <span class="text-yellow-400 font-bold text-lg">From $20</span>
       </div>
     </div>
   </section>
   <!-- GALLERY -->
-  <section id="gallery" class="fade-in py-16 px-4 bg-neutral-950">
+  <section id="gallery" class="fade-in py-16 px-4 bg-[var(--main-bg)]">
     <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Gallery</h2>
     <div class="flex flex-wrap gap-6 justify-center">
       <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=300&q=80" alt="Modern Fade" loading="lazy" class="rounded-xl shadow-md w-56 h-40 object-cover fade-in">
@@ -107,30 +152,30 @@
     </div>
   </section>
   <!-- REVIEWS -->
-  <section id="reviews" class="fade-in py-16 px-4 bg-neutral-900">
+  <section id="reviews" class="fade-in py-16 px-4 bg-[var(--card-bg)] transition">
     <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">What Clients Say</h2>
     <div class="flex flex-wrap gap-8 justify-center">
-      <div class="bg-neutral-800 rounded-xl shadow p-5 max-w-sm fade-in">
-        <p class="mb-2 text-gray-200 italic">“My go-to barber… always leave happy about my haircut. Staff extremely personable and funny.”</p>
+      <div class="rounded-xl shadow p-5 max-w-sm fade-in bg-[var(--main-bg)] border border-yellow-100/5">
+        <p class="mb-2 text-gray-700 dark:text-gray-200 italic">“My go-to barber… always leave happy about my haircut. Staff extremely personable and funny.”</p>
         <span class="text-xs text-yellow-400">— Yelp</span>
       </div>
-      <div class="bg-neutral-800 rounded-xl shadow p-5 max-w-sm fade-in">
-        <p class="mb-2 text-gray-200 italic">“Having my hair cut here was one of my best LA experiences. A beer, reggae, great people. Highly recommend!”</p>
+      <div class="rounded-xl shadow p-5 max-w-sm fade-in bg-[var(--main-bg)] border border-yellow-100/5">
+        <p class="mb-2 text-gray-700 dark:text-gray-200 italic">“Having my hair cut here was one of my best LA experiences. A beer, reggae, great people. Highly recommend!”</p>
         <span class="text-xs text-yellow-400">— Yelp</span>
       </div>
-      <div class="bg-neutral-800 rounded-xl shadow p-5 max-w-sm fade-in">
-        <p class="mb-2 text-gray-200 italic">“Super friendly staff. Did not have an appointment. Wait was not too long. Great haircuts walking out.”</p>
+      <div class="rounded-xl shadow p-5 max-w-sm fade-in bg-[var(--main-bg)] border border-yellow-100/5">
+        <p class="mb-2 text-gray-700 dark:text-gray-200 italic">“Super friendly staff. Did not have an appointment. Wait was not too long. Great haircuts walking out.”</p>
         <span class="text-xs text-yellow-400">— Yelp</span>
       </div>
     </div>
   </section>
   <!-- CONTACT -->
-  <section id="contact" class="fade-in py-16 px-4 bg-neutral-950">
+  <section id="contact" class="fade-in py-16 px-4 bg-[var(--main-bg)]">
     <h2 class="text-3xl font-bold mb-8 text-yellow-400 text-center">Contact & Hours</h2>
     <div class="max-w-lg mx-auto text-center">
       <div class="mb-6">
         <div class="flex justify-center text-xl font-bold text-yellow-400 items-center"><span class="material-icons mr-1">call</span> +1 310-986-4788</div>
-        <span>1217 El Prado Ave, Torrance, CA</span>
+        <span class="text-[var(--main-text)]">1217 El Prado Ave, Torrance, CA</span>
       </div>
       <div class="mb-3">
         <b>Hours:</b>
@@ -147,8 +192,35 @@
   <footer class="bg-black text-gray-400 py-4 text-center text-sm border-t border-neutral-800">
     &copy; 2025 Headlinerz The Old Town Barbershop &mdash; Powered by Maryam Tech. All rights reserved.
   </footer>
-  <!-- Animation Logic -->
+  <!-- Animation & Theme Logic -->
   <script>
+    // Theme toggle (light/dark), persisted
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlEl = document.documentElement;
+    // Use localStorage if present:
+    function setTheme(theme, noPersist) {
+      htmlEl.setAttribute('data-theme', theme);
+      if(!noPersist) localStorage.setItem('theme', theme);
+      if(theme === 'light') {
+        themeIcon.textContent = '☀️';
+      } else {
+        themeIcon.textContent = '🌒';
+      }
+    }
+    function toggleTheme() {
+      const cur = htmlEl.getAttribute('data-theme');
+      setTheme(cur === 'light' ? 'dark' : 'light');
+    }
+    // Initial theme (localStorage or prefers-color-scheme)
+    (() => {
+      const stored = localStorage.getItem('theme');
+      if (stored) setTheme(stored, true);
+      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) setTheme('light', true);
+      else setTheme('dark', true);
+    })();
+    themeToggle.addEventListener('click', toggleTheme);
+
     // Staggered fade in for all .fade-in elements
     document.addEventListener("DOMContentLoaded", () => {
       anime({
