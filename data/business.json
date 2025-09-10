@@ -1,0 +1,86 @@
+{
+  "name": "Headlinerz - The Old Town Barbershop",
+  "address": {
+    "street": "123 Main Street",
+    "city": "Old Town",
+    "state": "CA",
+    "zip": "90210",
+    "country": "USA"
+  },
+  "contact": {
+    "phone": "(555) 123-4567",
+    "email": "info@headlinerzbarber.com",
+    "website": "https://headlinerzbarber.com"
+  },
+  "hours": {
+    "monday": "9:00 AM - 7:00 PM",
+    "tuesday": "9:00 AM - 7:00 PM",
+    "wednesday": "9:00 AM - 7:00 PM",
+    "thursday": "9:00 AM - 8:00 PM",
+    "friday": "9:00 AM - 8:00 PM",
+    "saturday": "8:00 AM - 6:00 PM",
+    "sunday": "10:00 AM - 4:00 PM"
+  },
+  "services": [
+    {
+      "name": "Classic Haircut",
+      "price": "$35",
+      "duration": "30 minutes",
+      "description": "Traditional scissor cut with styling"
+    },
+    {
+      "name": "Beard Trim & Shape",
+      "price": "$25",
+      "duration": "20 minutes",
+      "description": "Professional beard trimming and shaping"
+    },
+    {
+      "name": "Hot Towel Shave",
+      "price": "$45",
+      "duration": "45 minutes",
+      "description": "Classic straight razor shave with hot towels"
+    },
+    {
+      "name": "Fade Cut",
+      "price": "$40",
+      "duration": "35 minutes",
+      "description": "Modern fade cuts - low, mid, or high fade"
+    },
+    {
+      "name": "Hair Wash & Style",
+      "price": "$20",
+      "duration": "25 minutes",
+      "description": "Shampoo, condition, and professional styling"
+    }
+  ],
+  "team": [
+    {
+      "name": "Mike Johnson",
+      "title": "Master Barber & Owner",
+      "experience": "15 years",
+      "specialties": ["Classic cuts", "Hot towel shaves", "Beard grooming"]
+    },
+    {
+      "name": "Sarah Martinez",
+      "title": "Senior Barber",
+      "experience": "8 years",
+      "specialties": ["Modern fades", "Styling", "Color consultation"]
+    },
+    {
+      "name": "David Chen",
+      "title": "Barber",
+      "experience": "5 years",
+      "specialties": ["Precision cuts", "Beard trimming", "Classic styles"]
+    }
+  ],
+  "social": {
+    "instagram": "@headlinerzbarber",
+    "facebook": "HeadlinerzBarber",
+    "twitter": "@headlinerz_otb"
+  },
+  "booking": {
+    "online": true,
+    "phone": true,
+    "walkins": "Limited availability"
+  }
+}
